@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Т-Банк</title>
+    <style>
+        /* Общие стили для страницы */
+        body {
+            font-family: 'Arial', sans-serif; /* Шрифт по умолчанию */
+            background-color: #181818; /* Темно-серый фон */
+            color: #f0f0f0; /* Светлый текст */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Занимает всю высоту экрана */
+        }
+
+        /* Контейнер для контента */
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: #282828; /* Более темный серый фон для контейнера */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Тень для объема */
+        }
+
+        h1 {
+            color: #ffcc00; /* Желтый цвет для заголовка */
+            margin-bottom: 30px;
+        }
+
+        a {
+            color: #ffcc00; /* Желтый цвет для ссылок */
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: 2px solid #ffcc00;
+            border-radius: 8px;
+            margin: 10px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s; /* Плавный переход при наведении */
+        }
+
+        a:hover {
+            background-color: #ffcc00; /* Желтый фон при наведении */
+            color: #282828; /* Темный цвет текста при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать в Т-Банк!</h1>
+        <a href="{{ url_for('register') }}">Регистрация</a>
+        <a href="{{ url_for('login') }}">Вход</a>
+    </div>
+</body>
+</html>

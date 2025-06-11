@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Транзакции</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #181818; /* Темный фон */
+            color: #f0f0f0; /* Светлый текст */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: left;
+            padding: 40px;
+            background-color: #282828; /* Более темный серый фон */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #ffcc00; /* Желтый заголовок */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>История транзакций</h1>
+        <ul>
+            {% for transaction in transactions %}
+                <li>
+                    {{ transaction.amount }} ₽ - {{ transaction.type }} 
+                    <br>Кому: {{ transaction.recipient_id if transaction.recipient_id else 'Зачисление' }}  
+                    <br>Время: {{ transaction.timestamp }}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('account', user_id=session['user_id']) }}">Назад в аккаунт</a>
+    </div>
+</body>
+</html>

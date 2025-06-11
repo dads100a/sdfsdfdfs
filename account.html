@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аккаунт</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111; /* Темный фон */
+            color: #eee; /* Светлый текст */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #222; /* Темный контейнер */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #ffc107; /* Желтый заголовок */
+            margin-bottom: 20px;
+        }
+        p {
+            color: #ccc;
+            margin-bottom: 12px;
+        }
+        /* Стили для форм */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-bottom: 25px;
+        }
+        input {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #333; /* Темные поля ввода */
+            color: #fff;
+        }
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #ffc107; /* Желтая кнопка */
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e0a800; /* Более темный желтый при наведении */
+        }
+        a {
+            color: #ffc107; /* Желтая ссылка */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #e0a800;
+        }
+        .withdraw-info {
+            color: #ddd;
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #333; /* Темный фон для информации */
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать, {{ user.first_name }} {{ user.last_name }}</h1>
+        <p>ID: {{ user.id }}</p>
+        <p>Баланс: {{ user.balance }} ₽</p>
+        
+        <form method="POST">
+            <input type="number" name="amount" placeholder="Сумма для депозита" required>
+            <button type="submit" name="deposit">Внести депозит</button>
+        </form>
+
+        <form method="POST">
+            <input type="text" name="recipient_id" placeholder="ID получателя" required>
+            <input type="number" name="amount" placeholder="Сумма для перевода" required>
+            <button type="submit" name="transfer">Перевести</button>
+        </form>
+
+        <a href="{{ url_for('transactions') }}">Смотреть транзакции</a>
+
+        <!-- Кнопка для перехода к оплате интернет-трафика -->
+        <form action="{{ url_for('pay_services') }}" method="get">
+            <button type="submit">Оплатить интернет</button>
+        </form>
+
+        <div class="withdraw-info">
+            Чтобы вывести, переведите ваш счёт на этот адрес (ID:00000000) сотнями (100, 200, 300 и тд. до 5000)
+        </div>
+
+        <a href="{{ url_for('checks') }}">Чеки</a>
+    </div>
+</body>
+</html>

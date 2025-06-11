@@ -1,0 +1,8 @@
+<h1>Оплата услуг</h1>
+<form action="{{ url_for('pay_services') }}" method="post">
+    <h2>Оплатить интернет</h2>
+    <button type="submit" name="amount_mb" value="50">Оплатить на 50 МБ</button>
+    <button type="submit" name="amount_mb" value="100">Оплатить на 100 МБ</button>
+    <button type="submit" name="amount_mb" value="250">Оплатить на 250 МБ</button>
+    <button type="submit" name="amount_mb" value="1000">Оплатить на 1 ГБ</button>
+</form>

@@ -1,0 +1,18 @@
+<!-- templates/admin.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Console</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <ul>
+        {% for user in users %}
+        <li>
+            ID: {{ user.id }}, Name: {{ user.first_name }} {{ user.last_name }}, Phone: {{ user.phone }}, Balance: {{ user.balance }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        /* Общие стили для страницы */
+        body {
+            font-family: 'Arial', sans-serif; /* Шрифт */
+            background-color: #181818; /* Фон */
+            color: #f0f0f0; /* Цвет текста */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Заполнение экрана */
+        }
+
+        /* Контейнер для формы */
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: #282828; /* Фон контейнера */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Тень */
+            width: 80%;
+            max-width: 500px;
+        }
+
+        /* Заголовок */
+        h1 {
+            color: #ffcc00; /* Цвет заголовка */
+            margin-bottom: 30px;
+        }
+
+        /* Форма */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* Растягивание элементов */
+        }
+
+        /* Поля ввода */
+        input {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #333; /* Фон полей */
+            color: #f0f0f0; /* Цвет текста в полях */
+        }
+
+        /* Кнопка */
+        button {
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffcc00; /* Фон кнопки */
+            color: #282828; /* Цвет текста на кнопке */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Анимация */
+        }
+
+        button:hover {
+            background-color: #e6b800; /* Изменение цвета при наведении */
+        }
+
+        /* Ссылка */
+        a {
+            color: #ffcc00; /* Цвет ссылки */
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            transition: color 0.3s; /* Анимация */
+        }
+
+        a:hover {
+            color: #e6b800; /* Изменение цвета при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Регистрация</h1>
+        <form method="POST">
+            <input type="text" name="id" placeholder="Айди (8 цифр)" required maxlength="8" pattern="\d{8}">
+            <input type="text" name="first_name" placeholder="Имя" required>
+            <input type="text" name="last_name" placeholder="Фамилия" required>
+            <input type="text" name="phone" placeholder="Номер телефона" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <a href="{{ url_for('login') }}">Уже зарегистрированы? Войдите</a>
+    </div>
+</body>
+</html>

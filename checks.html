@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чеки</title>
+</head>
+<body>
+    <h1>Чеки</h1>
+
+    <h2>Создать чек</h2>
+    <form method="POST">
+        <input type="text" name="check_name" placeholder="Название чека" required>
+        <input type="text" name="check_code" placeholder="Код чека (4 цифры)" required maxlength="4">
+        <input type="number" name="check_amount" placeholder="Сумма чека" required>
+        <button type="submit" name="create_check">Создать чек</button>
+    </form>
+
+    <h2>Ввести чек</h2>
+    <form method="POST">
+        <input type="text" name="check_code_input" placeholder="Введите код чека" required>
+        <button type="submit" name="input_check">Ввести чек</button>
+    </form>
+
+    <h2>Список созданных чеков</h2>
+    <ul>
+        {% for check in checks %}
+            <li>{{ check.name }} - Код: {{ check.code }} - Сумма: {{ check.amount }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

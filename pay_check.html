@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата чека</title>
+</head>
+<body>
+    <h1>Оплата чека</h1>
+    <p>Название чека: {{ check.name }}</p>
+    <p>Код чека: {{ check.code }}</p>
+    <p>Сумма: {{ check.amount }}</p>
+
+    <form method="POST">
+        <button type="submit">Оплатить</button>
+    </form>
+</body>
+</html>
+
+<!-- pay_check.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pay Check</title>
+</head>
+<body>
+    <h1>Pay for Check: {{ check.name }}</h1>
+    <p>Price: {{ check.price }}</p>
+    <form method="POST">
+        <button type="submit">Pay</button>
+    </form>
+    <a href="{{ url_for('account', user_id=session.user_id) }}">Back to Account</a>
+</body>
+</html>
